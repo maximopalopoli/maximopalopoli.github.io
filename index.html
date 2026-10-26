@@ -49,13 +49,46 @@
     </header>
 
     <main>
+        <section id="stack">
+            <h2>Stack</h2>
+            <div class="group">
+                <span class="label">Languages</span>
+                <div class="tags">
+                    <button>Rust</button>
+                    <button>Go</button>
+                    <button>Python</button>
+                    <button>Elixir</button>
+                    <button>TypeScript</button>
+                </div>
+            </div>
+            <div class="group">
+                <span class="label">Frameworks</span>
+                <div class="tags">
+                    <button>FastAPI</button>
+                    <button>Phoenix</button>
+                    <button>React</button>
+                </div>
+            </div>
+            <div class="group">
+                <span class="label">Data &amp; infra</span>
+                <div class="tags">
+                    <button>PostgreSQL</button>
+                    <button>Redis</button>
+                    <button>Docker</button>
+                    <button>Prometheus</button>
+                    <button>Grafana</button>
+                </div>
+            </div>
+            <p class="hint">Hover or tap a technology to see where I used it.</p>
+        </section>
+
         <section>
             <h2>Work</h2>
             <p class="muted">LambdaClass · Sep 2024 – Jan 2026 · ~350 pull requests</p>
 
             <article class="item">
                 <h3><a href="https://github.com/yetanotherco/aligned_layer">aligned_layer</a></h3>
-                <p class="stack">Rust · PostgreSQL · Prometheus · Grafana</p>
+                <p class="stack"><span>Rust</span><span>PostgreSQL</span><span>Docker</span><span>Prometheus</span><span>Grafana</span></p>
                 <p>Reliability work on a service that aggregates ZK proofs and pays fees on-chain.</p>
                 <ul>
                     <li>Retries that bump the fee when a verification times out</li>
@@ -68,7 +101,7 @@
 
             <article class="item">
                 <h3><a href="https://github.com/yetanotherco/zk_arcade">zk_arcade</a></h3>
-                <p class="stack">Elixir · React · PostgreSQL</p>
+                <p class="stack"><span>Elixir</span><span>Phoenix</span><span>React</span><span>PostgreSQL</span><span>Solidity</span></p>
                 <p>A full web product: games that generate ZK proofs, with points, a leaderboard and NFTs.</p>
                 <ul>
                     <li>Moved the WebSocket connection to the backend, so it survives the user closing the page</li>
@@ -81,7 +114,7 @@
 
             <article class="item">
                 <h3><a href="https://github.com/Layr-Labs/eigensdk-go">eigensdk-go</a></h3>
-                <p class="stack">Go</p>
+                <p class="stack"><span>Go</span><span>Concurrency</span><span>RPC</span><span>Testing</span></p>
                 <p>EigenLayer's official Go SDK, a public API other teams build on.</p>
                 <ul>
                     <li>Tests for the contract readers and writers</li>
@@ -94,7 +127,7 @@
 
             <article class="item">
                 <h3><a href="https://github.com/lambdaclass/ethrex">ethrex</a></h3>
-                <p class="stack">Rust · Ethereum</p>
+                <p class="stack"><span>Rust</span><span>EVM</span><span>Testing</span></p>
                 <p>LambdaClass's Ethereum client. I worked on the virtual machine, with the official Ethereum Foundation test suite as the target.</p>
                 <ul>
                     <li>Most of the cryptographic precompiles (ecrecover, ecpairing, point evaluation and others)</li>
@@ -109,8 +142,8 @@
             <h2>Projects</h2>
 
             <article class="item">
-                <h3><a href="https://github.com/tpp-grupo-166/reservoir-pressure-web">Reservoir pressure estimation</a></h3>
-                <p class="stack">Python · FastAPI · React · TypeScript · pytest</p>
+                <h3><a href="https://github.com/tpp-grupo-166/reservoir-pressure-web">reservoir-pressure-web</a></h3>
+                <p class="stack"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span></p>
                 <p>
                     Web app for my final thesis, built with two classmates. An engineer uploads the
                     production history of an oil field and gets the estimated pressure from an ML model.
@@ -121,13 +154,13 @@
 
             <article class="item">
                 <h3><a href="https://github.com/maximopalopoli/unipoll">unipoll</a></h3>
-                <p class="stack">Elixir · Phoenix LiveView · PostgreSQL</p>
+                <p class="stack"><span>Elixir</span><span>Phoenix</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span></p>
                 <p>Real-time polls with access levels, from public to invite-only with authentication.</p>
             </article>
 
             <article class="item">
                 <h3><a href="https://github.com/maximopalopoli/p2pal">p2pal</a></h3>
-                <p class="stack">Go · WebRTC · Redis</p>
+                <p class="stack"><span>Go</span><span>WebRTC</span><span>Redis</span><span>Docker</span><span>Prometheus</span><span>Grafana</span></p>
                 <p>
                     CLI to send files directly between machines over WebRTC. The server only brokers
                     the connection with short-lived join codes in Redis; the files never touch it.
@@ -140,5 +173,6 @@
     <footer>
         <p class="muted">Computer Engineering, University of Buenos Aires (2026)</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

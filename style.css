@@ -46,9 +46,57 @@ h3 { margin: 0; font-size: 1.1rem; }
     color: var(--muted);
 }
 
+.stack, .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
 .stack {
-    margin: 2px 0 8px;
+    margin: 6px 0 10px;
+}
+
+.stack span, .tags button {
+    padding: 3px 9px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font: 0.8rem/1.4 ui-monospace, monospace;
+    color: var(--muted);
+    background: none;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.tags button {
+    cursor: pointer;
+}
+
+.group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 6px;
+    margin: 18px 0;
+}
+
+.group .tags {
+    display: contents;
+}
+
+.group .label {
+    min-width: 110px;
+    color: var(--muted);
     font-size: 0.9rem;
+}
+
+.hint {
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.stack span.on, .tags button.on {
+    color: var(--accent);
+    border-color: var(--accent);
 }
 
 nav {
@@ -85,6 +133,11 @@ nav svg {
 
 .item {
     margin: 28px 0;
+    transition: opacity 0.2s;
+}
+
+.item.dim {
+    opacity: 0.3;
 }
 
 .item ul {
