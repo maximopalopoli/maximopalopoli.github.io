@@ -33,11 +33,18 @@ html {
     scroll-behavior: smooth;
 }
 
+/* En pantallas anchas todo un 10% más grande; en el celular queda el tamaño base */
+@media (min-width: 600px) {
+    html {
+        font-size: 110%;
+    }
+}
+
 body {
     margin: 0 auto;
-    max-width: 680px;
+    max-width: 748px;
     padding: 48px 20px;
-    font: 17px/1.6 system-ui, sans-serif;
+    font: 1.0625rem/1.6 system-ui, sans-serif;
     background: var(--bg);
     color: var(--fg);
 }
