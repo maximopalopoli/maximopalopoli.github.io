@@ -42,7 +42,11 @@ a:hover {
     text-decoration: underline;
 }
 
-h1 { margin: 0; font-size: 2rem; }
+h1 { margin: 0; font-size: 2.5rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+
+header { padding-bottom: 8px; }
+
+.tagline { margin-top: 10px; font-size: 1.05rem; }
 h2 { margin-top: 64px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
 h3 { margin: 0; font-size: 1.1rem; }
 
