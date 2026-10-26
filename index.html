@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máximo Palopoli · Backend Engineer</title>
+    <meta name="description" content="Backend engineer from Buenos Aires. Rust, Go, Python.">
+    <link rel="stylesheet" href="style.css">
+    <base target="_blank">
+</head>
+<body>
+    <header>
+        <h1>Máximo Palopoli</h1>
+        <p class="tagline">Backend engineer · Buenos Aires</p>
+        <p>
+            Computer Engineer from the University of Buenos Aires. I spent 16 months at
+            LambdaClass building blockchain infrastructure in Rust, Go and Elixir, around
+            350 pull requests, all public. Now I'm looking for backend roles, mostly Python and Go.
+        </p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Work</h2>
+            <p class="muted">LambdaClass · Sep 2024 – Jan 2026 · ~350 pull requests</p>
+
+            <article class="item">
+                <h3><a href="https://github.com/yetanotherco/aligned_layer">aligned_layer</a></h3>
+                <p class="stack">Rust · PostgreSQL · Prometheus · Grafana</p>
+                <p>Reliability work on a service that aggregates ZK proofs and pays fees on-chain.</p>
+                <ul>
+                    <li>Retries that bump the fee when a verification times out</li>
+                    <li>A payments poller that resumes from its last block after a restart</li>
+                    <li>Daily usage limits per user</li>
+                    <li>Metrics and dashboards with Prometheus and Grafana</li>
+                </ul>
+                <a href="https://github.com/yetanotherco/aligned_layer/pulls?q=is%3Apr+author%3Amaximopalopoli">45 pull requests →</a>
+            </article>
+
+            <article class="item">
+                <h3><a href="https://github.com/yetanotherco/zk_arcade">zk_arcade</a></h3>
+                <p class="stack">Elixir · React · PostgreSQL</p>
+                <p>A full web product: games that generate ZK proofs, with points, a leaderboard and NFTs.</p>
+                <ul>
+                    <li>Moved the WebSocket connection to the backend, so it survives the user closing the page</li>
+                    <li>Signature-based authentication, checking each request against the session address</li>
+                    <li>A poller that reads contract events and keeps the database in sync with the chain</li>
+                    <li>Database schemas, leaderboard and stats pages</li>
+                </ul>
+                <a href="https://github.com/yetanotherco/zk_arcade/pulls?q=is%3Apr+author%3Amaximopalopoli">101 pull requests →</a>
+            </article>
+
+            <article class="item">
+                <h3><a href="https://github.com/Layr-Labs/eigensdk-go">eigensdk-go</a></h3>
+                <p class="stack">Go</p>
+                <p>EigenLayer's official Go SDK, a public API other teams build on.</p>
+                <ul>
+                    <li>Tests for the contract readers and writers</li>
+                    <li>A common error interface across the client modules</li>
+                    <li>Moved boilerplate from the example services into the SDK</li>
+                    <li>Worked on the v2 redesign: concurrent entities and a separate RPC server</li>
+                </ul>
+                <a href="https://github.com/Layr-Labs/eigensdk-go/pulls?q=is%3Apr+author%3Amaximopalopoli">116 pull requests →</a>
+            </article>
+
+            <article class="item">
+                <h3><a href="https://github.com/lambdaclass/ethrex">ethrex</a></h3>
+                <p class="stack">Rust · Ethereum</p>
+                <p>LambdaClass's Ethereum client. I worked on the virtual machine, with the official Ethereum Foundation test suite as the target.</p>
+                <ul>
+                    <li>Most of the cryptographic precompiles (ecrecover, ecpairing, point evaluation and others)</li>
+                    <li>Gas accounting fixes, like a call cost that charged too much on every value transfer</li>
+                    <li>Integrated the Ethereum Foundation test suite into the project</li>
+                </ul>
+                <a href="https://github.com/lambdaclass/ethrex/pulls?q=is%3Apr+author%3Amaximopalopoli">51 pull requests →</a>
+            </article>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+
+            <article class="item">
+                <h3><a href="https://github.com/tpp-grupo-166/reservoir-pressure-web">Reservoir pressure estimation</a></h3>
+                <p class="stack">Python · FastAPI · React · TypeScript · pytest</p>
+                <p>
+                    Web app for my final thesis, built with two classmates. An engineer uploads the
+                    production history of an oil field and gets the estimated pressure from an ML model.
+                    I built the pluggable model architecture (LSTM, Ridge, XGBoost), the input
+                    validation, the example case loader and the CI with coverage.
+                </p>
+            </article>
+
+            <article class="item">
+                <h3><a href="https://github.com/maximopalopoli/unipoll">unipoll</a></h3>
+                <p class="stack">Elixir · Phoenix LiveView · PostgreSQL</p>
+                <p>Real-time polls with access levels, from public to invite-only with authentication.</p>
+            </article>
+
+            <article class="item">
+                <h3><a href="https://github.com/maximopalopoli/p2pal">p2pal</a></h3>
+                <p class="stack">Go · WebRTC · Redis</p>
+                <p>
+                    CLI to send files directly between machines over WebRTC. The server only brokers
+                    the connection with short-lived join codes in Redis; the files never touch it.
+                    Supports directories, resume after an interruption and SHA-256 checks.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p class="muted">Computer Engineering, University of Buenos Aires (2026)</p>
+    </footer>
+</body>
+</html>
