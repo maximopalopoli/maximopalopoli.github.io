@@ -1,24 +1,16 @@
-// Al pasar el mouse por una tecnología del stack, resalta las cards de los proyectos
-// que la usan y opaca el resto. Un click (o tap en el celular) la deja fija hasta el
-// próximo click. Las tecnologías de cada card salen de las etiquetas de su proyecto.
+// Al pasar el mouse por una tecnología del stack, resalta los proyectos que la usan y
+// opaca el resto. Un click (o tap en el celular) la deja fija hasta el próximo click.
 const buttons = document.querySelectorAll('.tags button');
-const cards = document.querySelectorAll('.card');
+const items = document.querySelectorAll('.item');
 let pinned = null;
 
-function uses(card, tech) {
-    const item = document.querySelector(card.getAttribute('href'));
+function uses(item, tech) {
     return [...item.querySelectorAll('.stack span')].some(s => s.textContent === tech);
 }
 
-// Cada card muestra las mismas etiquetas que su proyecto, copiadas de abajo
-cards.forEach(card => {
-    const stack = document.querySelector(card.getAttribute('href') + ' .stack');
-    card.querySelector('.meta').before(stack.cloneNode(true));
-});
-
 function highlight(tech) {
-    cards.forEach(card => card.classList.toggle('dim', tech !== null && !uses(card, tech)));
-    document.querySelectorAll('.tags button, .card .stack span').forEach(el => {
+    items.forEach(item => item.classList.toggle('dim', tech !== null && !uses(item, tech)));
+    document.querySelectorAll('.tags button, .item .stack span').forEach(el => {
         el.classList.toggle('on', el.textContent === tech);
     });
 }
@@ -42,4 +34,15 @@ document.querySelector('.theme').addEventListener('click', () => {
     const next = current === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
     try { localStorage.setItem('theme', next); } catch (e) {}
+});
+
+// Los proyectos arrancan plegados, mostrando solo lo principal. Se pliegan desde acá
+// y no en el HTML para que, sin JavaScript, se vea todo.
+document.querySelectorAll('.more button').forEach(button => {
+    const item = button.closest('.item');
+    item.classList.add('collapsed');
+    button.addEventListener('click', () => {
+        const collapsed = item.classList.toggle('collapsed');
+        button.textContent = collapsed ? button.dataset.more : 'Show less';
+    });
 });

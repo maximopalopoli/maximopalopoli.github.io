@@ -190,6 +190,7 @@ nav .sep {
 }
 
 @media (max-width: 480px) {
+
     nav .sep {
         display: none;
     }
@@ -208,7 +209,19 @@ nav svg {
 }
 
 .item {
-    padding: 24px 0;
+    padding: 22px 0;
+    transition: opacity 0.2s;
+}
+
+.item.dim {
+    opacity: 0.3;
+}
+
+.head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 14px;
 }
 
 .item + .item {
@@ -227,65 +240,48 @@ nav svg {
 }
 
 .item .stack {
-    margin: 6px 0 12px;
+    margin: 0;
 }
 
-.item > a {
-    font-size: 0.9rem;
+.item p {
+    margin: 8px 0;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 16px;
-}
-
-.card {
+.more {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 16px 18px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    transition: opacity 0.2s, border-color 0.2s;
-}
-
-.card:hover {
-    text-decoration: none;
-    border-color: var(--accent);
-}
-
-.card strong {
-    font-size: 1.05rem;
-}
-
-.card .desc, .card .meta {
-    color: var(--muted);
+    gap: 24px;
     font-size: 0.9rem;
-    line-height: 1.4;
 }
 
-.card .stack {
-    margin: 10px 0 4px;
+.more button {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: var(--fg);
+    cursor: pointer;
 }
 
-.card .stack span {
-    font-size: 0.75rem;
+.more button::before {
+    content: "▸ ";
+    color: var(--muted);
 }
 
-.card .meta {
-    margin-top: auto;
-    padding-top: 8px;
-    font-size: 0.8rem;
+.item:not(.collapsed) .more button::before {
+    content: "▴ ";
 }
 
-.card.dim {
-    opacity: 0.3;
+.more button:hover {
+    color: var(--accent);
 }
+
+.collapsed .extra {
+    display: none;
+}
+
 
 .item ul {
-    margin: 0 0 6px;
+    margin: 8px 0 0;
     padding-left: 18px;
     font-size: 0.95rem;
 }
@@ -293,4 +289,12 @@ nav svg {
 footer {
     margin-top: 64px;
     font-size: 0.9rem;
+}
+
+/* Al final para pisar a .head: en el celular las etiquetas van debajo del nombre */
+@media (max-width: 480px) {
+    .head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
