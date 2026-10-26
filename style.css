@@ -6,14 +6,23 @@
     --line: #e4e4e7;
 }
 
+/* El oscuro sale del sistema, salvo que el usuario haya elegido otro con el botón */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --bg: #141416;
         --fg: #ececee;
         --muted: #9a9aa2;
         --accent: #7ea2ff;
         --line: #2a2a2e;
     }
+}
+
+:root[data-theme="dark"] {
+    --bg: #141416;
+    --fg: #ececee;
+    --muted: #9a9aa2;
+    --accent: #7ea2ff;
+    --line: #2a2a2e;
 }
 
 * {
@@ -45,6 +54,54 @@ a:hover {
 h1 { margin: 0; font-size: 2.5rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
 
 header { padding-bottom: 8px; }
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.theme {
+    display: flex;
+    padding: 8px;
+    border: 0;
+    border-radius: 999px;
+    background: none;
+    cursor: pointer;
+}
+
+.theme:hover {
+    background: var(--line);
+}
+
+.theme svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--fg);
+}
+
+.theme .sun {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme .sun {
+    display: block;
+}
+
+:root[data-theme="dark"] .theme .moon {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme .sun {
+        display: block;
+    }
+
+    :root:not([data-theme="light"]) .theme .moon {
+        display: none;
+    }
+}
 
 .tagline { margin-top: 10px; font-size: 1.05rem; }
 h2 { margin-top: 64px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }

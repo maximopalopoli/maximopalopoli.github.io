@@ -32,3 +32,14 @@ buttons.forEach(button => {
         highlight(pinned);
     });
 });
+
+// El botón del encabezado alterna entre claro y oscuro y recuerda la elección.
+// Sin elección guardada, la página sigue el modo del sistema.
+document.querySelector('.theme').addEventListener('click', () => {
+    const root = document.documentElement;
+    const systemDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    const current = root.dataset.theme || (systemDark ? 'dark' : 'light');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+});
