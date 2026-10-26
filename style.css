@@ -105,7 +105,7 @@ header { padding-bottom: 8px; }
 
 .tagline { margin-top: 10px; font-size: 1.05rem; }
 h2 { margin-top: 64px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
-h3 { margin: 0; font-size: 1.1rem; }
+h3 { margin: 0; font-size: 1.25rem; }
 
 .tagline, .muted, .stack {
     color: var(--muted);
@@ -123,10 +123,10 @@ h3 { margin: 0; font-size: 1.1rem; }
 
 .stack span, .tags button {
     padding: 3px 9px;
-    border: 1px solid var(--line);
+    border: 1px solid color-mix(in srgb, var(--fg) 22%, transparent);
     border-radius: 999px;
     font: 0.8rem/1.4 ui-monospace, monospace;
-    color: var(--muted);
+    color: var(--fg);
     background: none;
     transition: color 0.2s, border-color 0.2s;
 }
@@ -220,7 +220,7 @@ nav svg {
 }
 
 .item .stack {
-    margin: 10px 0 12px;
+    margin: 6px 0 12px;
 }
 
 .item > a {
