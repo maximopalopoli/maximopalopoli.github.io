@@ -1,15 +1,24 @@
-// Al pasar el mouse por una tecnología del stack, resalta los proyectos que la usan
-// y opaca el resto. Un click (o tap en el celular) la deja fija hasta el próximo click.
+// Al pasar el mouse por una tecnología del stack, resalta las cards de los proyectos
+// que la usan y opaca el resto. Un click (o tap en el celular) la deja fija hasta el
+// próximo click. Las tecnologías de cada card salen de las etiquetas de su proyecto.
 const buttons = document.querySelectorAll('.tags button');
-const items = document.querySelectorAll('.item');
+const cards = document.querySelectorAll('.card');
 let pinned = null;
 
+function uses(card, tech) {
+    const item = document.querySelector(card.getAttribute('href'));
+    return [...item.querySelectorAll('.stack span')].some(s => s.textContent === tech);
+}
+
+// Cada card muestra las mismas etiquetas que su proyecto, copiadas de abajo
+cards.forEach(card => {
+    const stack = document.querySelector(card.getAttribute('href') + ' .stack');
+    card.querySelector('.meta').before(stack.cloneNode(true));
+});
+
 function highlight(tech) {
-    items.forEach(item => {
-        const uses = [...item.querySelectorAll('.stack span')].some(s => s.textContent === tech);
-        item.classList.toggle('dim', tech !== null && !uses);
-    });
-    document.querySelectorAll('.stack span, .tags button').forEach(el => {
+    cards.forEach(card => card.classList.toggle('dim', tech !== null && !uses(card, tech)));
+    document.querySelectorAll('.tags button, .card .stack span').forEach(el => {
         el.classList.toggle('on', el.textContent === tech);
     });
 }

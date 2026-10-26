@@ -20,6 +20,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0 auto;
     max-width: 680px;
@@ -68,6 +72,10 @@ h3 { margin: 0; font-size: 1.1rem; }
 
 .tags button {
     cursor: pointer;
+}
+
+.tags button:hover {
+    border-color: var(--accent);
 }
 
 .group {
@@ -133,10 +141,55 @@ nav svg {
 
 .item {
     margin: 28px 0;
-    transition: opacity 0.2s;
 }
 
-.item.dim {
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    transition: opacity 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+}
+
+.card strong {
+    font-size: 1.05rem;
+}
+
+.card .desc, .card .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.card .stack {
+    margin: 10px 0 4px;
+}
+
+.card .stack span {
+    font-size: 0.75rem;
+}
+
+.card .meta {
+    margin-top: auto;
+    padding-top: 8px;
+    font-size: 0.8rem;
+}
+
+.card.dim {
     opacity: 0.3;
 }
 
